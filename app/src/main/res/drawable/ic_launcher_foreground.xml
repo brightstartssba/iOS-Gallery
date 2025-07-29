@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:scaleX="0.46"
+           android:scaleY="0.46"
+           android:translateX="29.16"
+           android:translateY="29.16">
+        <!-- Photos app icon - colorful flower -->
+        <path android:fillColor="#FF6B6B"
+              android:pathData="M54,20 C62.28,20 69,26.72 69,35 C69,43.28 62.28,50 54,50 C54,41.72 47.28,35 39,35 C39,26.72 45.72,20 54,20 Z"/>
+        <path android:fillColor="#4ECDC4"
+              android:pathData="M74,35 C82.28,35 89,41.72 89,50 C89,58.28 82.28,65 74,65 C74,56.72 67.28,50 59,50 C59,41.72 65.72,35 74,35 Z"/>
+        <path android:fillColor="#45B7D1"
+              android:pathData="M69,50 C77.28,50 84,56.72 84,65 C84,73.28 77.28,80 69,80 C69,71.72 62.28,65 54,65 C54,56.72 60.72,50 69,50 Z"/>
+        <path android:fillColor="#96CEB4"
+              android:pathData="M54,65 C62.28,65 69,71.72 69,80 C69,88.28 62.28,95 54,95 C54,86.72 47.28,80 39,80 C39,71.72 45.72,65 54,65 Z"/>
+        <path android:fillColor="#FFEAA7"
+              android:pathData="M39,50 C47.28,50 54,56.72 54,65 C54,73.28 47.28,80 39,80 C39,71.72 32.28,65 24,65 C24,56.72 30.72,50 39,50 Z"/>
+        <path android:fillColor="#DDA0DD"
+              android:pathData="M34,35 C42.28,35 49,41.72 49,50 C49,58.28 42.28,65 34,65 C34,56.72 27.28,50 19,50 C19,41.72 25.72,35 34,35 Z"/>
+        <path android:fillColor="#F0A3FF"
+              android:pathData="M39,20 C47.28,20 54,26.72 54,35 C54,43.28 47.28,50 39,50 C39,41.72 32.28,35 24,35 C24,26.72 30.72,20 39,20 Z"/>
+        <path android:fillColor="#FFB347"
+              android:pathData="M54,35 C62.28,35 69,41.72 69,50 C69,58.28 62.28,65 54,65 C54,56.72 47.28,50 39,50 C39,41.72 45.72,35 54,35 Z"/>
+        <!-- Center circle -->
+        <circle android:fillColor="#FFFFFF"
+                android:cx="54"
+                android:cy="50"
+                android:r="8"/>
+    </group>
+</vector>
