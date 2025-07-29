@@ -33,6 +33,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,6 +48,10 @@ import com.gallery.iosstyle.ui.components.LoadingIndicator
 import com.gallery.iosstyle.ui.components.PeoplePetsSection
 import com.gallery.iosstyle.ui.components.PhotoGrid
 import com.gallery.iosstyle.ui.components.RecentDaysSection
+import com.gallery.iosstyle.ui.components.IOSTimelineGrid
+import com.gallery.iosstyle.ui.components.IOSBottomNavigation
+import com.gallery.iosstyle.ui.components.IOSTimePeriodFilter
+import com.gallery.iosstyle.ui.components.TimePeriod
 import com.gallery.iosstyle.ui.theme.IOSBlue
 import com.gallery.iosstyle.ui.theme.IOSGray
 import com.gallery.iosstyle.viewmodel.PhotoViewModel
@@ -63,6 +70,9 @@ fun PhotosScreen(
     val peopleGroups by viewModel.peopleGroups.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val error by viewModel.error.collectAsState()
+    
+    var selectedTab by remember { mutableStateOf("photos") }
+    var selectedTimePeriod by remember { mutableStateOf(TimePeriod.DAYS) }
 
     LaunchedEffect(hasPermission) {
         if (hasPermission) {
@@ -79,27 +89,13 @@ fun PhotosScreen(
                             text = "Photos",
                             style = MaterialTheme.typography.titleLarge.copy(
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 28.sp
+                                fontSize = 34.sp
                             ),
                             color = MaterialTheme.colorScheme.onSurface
                         )
-                        if (photos.isNotEmpty()) {
-                            Text(
-                                text = "${photos.size} Items",
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* Search functionality */ }) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = "Search",
-                            tint = IOSBlue
-                        )
-                    }
                     OutlinedButton(
                         onClick = { /* Select functionality */ },
                         colors = ButtonDefaults.outlinedButtonColors(
@@ -109,11 +105,20 @@ fun PhotosScreen(
                     ) {
                         Text("Select")
                     }
+                    IconButton(onClick = { /* More options */ }) {
+                        Text("•••", style = MaterialTheme.typography.titleLarge, color = IOSBlue)
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = Color.Transparent
                 ),
                 modifier = Modifier.statusBarsPadding()
+            )
+        },
+        bottomBar = {
+            IOSBottomNavigation(
+                selectedTab = selectedTab,
+                onTabSelected = { selectedTab = it }
             )
         },
         modifier = modifier.fillMaxSize()
@@ -149,44 +154,22 @@ fun PhotosScreen(
             }
             
             else -> {
-                LazyColumn(
+                Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(paddingValues),
-                    contentPadding = PaddingValues(bottom = 16.dp)
+                        .padding(paddingValues)
                 ) {
-                    // Main photo grid
-                    item {
-                        PhotoGrid(
-                            photos = photos,
-                            onPhotoClick = onPhotoClick,
-                            modifier = Modifier.height(600.dp) // Fixed height for grid
-                        )
-                    }
+                    // Time period filter
+                    IOSTimePeriodFilter(
+                        selectedPeriod = selectedTimePeriod,
+                        onPeriodSelected = { selectedTimePeriod = it }
+                    )
                     
-                    item { Spacer(modifier = Modifier.height(24.dp)) }
-                    
-                    // Recent Days section
-                    if (recentDays.isNotEmpty()) {
-                        item {
-                            RecentDaysSection(
-                                recentDays = recentDays,
-                                onSectionClick = { /* Navigate to recent days */ }
-                            )
-                        }
-                        
-                        item { Spacer(modifier = Modifier.height(24.dp)) }
-                    }
-                    
-                    // People & Pets section
-                    if (peopleGroups.isNotEmpty()) {
-                        item {
-                            PeoplePetsSection(
-                                peopleGroups = peopleGroups,
-                                onSectionClick = { /* Navigate to people & pets */ }
-                            )
-                        }
-                    }
+                    // Main photo timeline grid
+                    IOSTimelineGrid(
+                        photos = photos,
+                        onPhotoClick = onPhotoClick
+                    )
                 }
             }
         }
