@@ -48,6 +48,10 @@ app/
   - Updated Kotlin 1.9.10 → 1.9.21, Android Gradle 8.1.2 → 8.1.4
   - Fixed Compose plugin compatibility issues
   - Updated Compose BOM to 2024.02.00 for latest stable versions
+- 2025-07-29: 🔧 **FIXED:** AndroidX Core dependency issues
+  - Added androidx.core:core:1.13.1 to fix ContextCompat errors
+  - Enabled android.enableJetifier=true for legacy support conversion
+  - Fixed package androidx.core.content does not exist error
 
 ## Build Status
 - **GitHub Actions**: Configured for automatic APK builds
