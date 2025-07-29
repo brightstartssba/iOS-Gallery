@@ -1,0 +1,34 @@
+2025-07-29T06:52:49.9052785Z ##[group]Run ./gradlew clean
+2025-07-29T06:52:49.9053095Z [36;1m./gradlew clean[0m
+2025-07-29T06:52:49.9082091Z shell: /usr/bin/bash -e {0}
+2025-07-29T06:52:49.9082331Z env:
+2025-07-29T06:52:49.9082613Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-07-29T06:52:49.9083071Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-07-29T06:52:49.9083448Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2025-07-29T06:52:49.9083726Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2025-07-29T06:52:49.9083977Z ##[endgroup]
+2025-07-29T06:52:50.9449850Z Starting a Gradle Daemon (subsequent builds will be faster)
+2025-07-29T06:53:21.7441468Z 
+2025-07-29T06:53:21.7443544Z FAILURE: Build failed with an exception.
+2025-07-29T06:53:21.7444847Z 
+2025-07-29T06:53:21.7445002Z * Where:
+2025-07-29T06:53:21.7447493Z Build file '/home/runner/work/iOS-Gallery/iOS-Gallery/build.gradle.kts' line: 2
+2025-07-29T06:53:21.7448342Z 
+2025-07-29T06:53:21.7452761Z * What went wrong:
+2025-07-29T06:53:21.7453979Z Plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '1.9.25', apply: false] was not found in any of the following sources:
+2025-07-29T06:53:21.7455220Z 
+2025-07-29T06:53:21.7461221Z - Gradle Core Plugins (plugin is not in 'org.gradle' namespace)
+2025-07-29T06:53:21.7465131Z - Plugin Repositories (could not resolve plugin artifact 'org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:1.9.25')
+2025-07-29T06:53:21.7467225Z   Searched in the following repositories:
+2025-07-29T06:53:21.7468228Z     Google
+2025-07-29T06:53:21.7469841Z     MavenRepo
+2025-07-29T06:53:21.7470305Z     Gradle Central Plugin Repository
+2025-07-29T06:53:21.7470638Z 
+2025-07-29T06:53:21.7470760Z * Try:
+2025-07-29T06:53:21.7471257Z > Run with --stacktrace option to get the stack trace.
+2025-07-29T06:53:21.7472185Z > Run with --info or --debug option to get more log output.
+2025-07-29T06:53:21.7473008Z > Run with --scan to get full insights.
+2025-07-29T06:53:21.7474116Z > Get more help at https://help.gradle.org.
+2025-07-29T06:53:21.7474638Z 
+2025-07-29T06:53:21.7475797Z BUILD FAILED in 31s
+2025-07-29T06:53:22.1249564Z ##[error]Process completed with exit code 1.
