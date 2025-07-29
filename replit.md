@@ -73,6 +73,7 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
 - **Language**: Vietnamese (project documentation and communication)
 - **Build Priority**: Focus on resolving Android build errors and ensuring GitHub Actions success
 - **Target**: Successful APK generation in `app/build/outputs/apk/debug/`
+- **Git Workflow**: Always provide manual git commands for any changes made
 
 ## Project Architecture
 
