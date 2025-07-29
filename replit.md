@@ -31,7 +31,7 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
   - Coil: 2.5.0 → 2.7.0
   - Accompanist Permissions: 0.32.0 → 0.36.0
 - **Enhanced GitHub Actions workflow**: Added `./gradlew clean` step before building
-- **Material 3 theme fix**: Changed to Compose-only approach - simplified XML theme with basic Android attributes only, implemented complete Material 3 color system in Compose code for iOS-style theming
+- **Material 3 theme fix**: Final AppCompat fallback approach - changed XML theme parent from `Theme.Material3.DayNight.NoActionBar` (not found) to `Theme.AppCompat.DayNight.NoActionBar` (guaranteed compatibility), added AppCompat dependency, maintained Material 3 Compose functionality
 
 ### Build Configuration Details
 - **Compile SDK**: 34 (Android 14)

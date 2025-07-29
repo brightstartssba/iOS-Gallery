@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Simplified theme that only sets essential properties -->
-    <style name="Theme.IOSGallery" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Keep only essential properties that are guaranteed to exist -->
+    <!-- Fallback to basic AppCompat theme that's guaranteed to exist -->
+    <style name="Theme.IOSGallery" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Basic theme properties that work with AppCompat -->
+        <item name="colorPrimary">@color/ios_blue</item>
+        <item name="colorPrimaryDark">@color/ios_blue</item>
+        <item name="colorAccent">@color/ios_blue</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/ios_blue</item>
         <item name="android:navigationBarColor">@color/white</item>
     </style>
