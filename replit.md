@@ -1,67 +1,85 @@
-# Android Gallery App - iOS Style
+# iOS Gallery Android App
 
-## Overview
-Ứng dụng Android Gallery mô phỏng giao diện của iOS Photos app, được xây dựng bằng Kotlin và Jetpack Compose.
+## Project Overview
+An Android mobile application that mimics the iOS Photos app interface, built with Jetpack Compose. The app features an iOS-style photo grid layout with sections for Recent Days and People & Pets, along with automated GitHub CI/CD pipeline for continuous deployment.
 
-## Tech Stack
-- **Language**: Kotlin
-- **UI Framework**: Jetpack Compose
-- **Architecture**: MVVM with ViewModel + StateFlow
-- **Image Loading**: Coil
-- **Build System**: Gradle
-- **CI/CD**: GitHub Actions
+## Stack
+- **Android SDK 34** (API Level 34)
+- **Kotlin 1.9.22** with Jetpack Compose
+- **Material Design 3** (Material3)
+- **GitHub Actions** for CI/CD
+- **Gradle 8.6** build system
+- **Java 11** compilation target
 
-## Features
-- Grid layout hiển thị ảnh giống iOS Photos
-- Truy cập ảnh từ thiết bị qua MediaStore API
-- Xem ảnh chi tiết với swipe navigation
-- Các section: Recent Days, People & Pets
-- UI mô phỏng iOS với bo góc và styling tương tự
+## Recent Changes (2025-07-29)
 
-## Project Structure
+### ✅ Android Build Configuration Fixed
+- **Updated Gradle versions**: 
+  - Android Gradle Plugin: 8.1.4 → 8.2.2
+  - Kotlin: 1.9.21 → 1.9.22
+  - Gradle Wrapper: 8.4 → 8.6
+- **Added missing Kotlin Compose plugin**: Fixed the `org.jetbrains.kotlin.plugin.compose` plugin error
+- **Updated Java target**: 1.8 → 11 (modern compatibility)
+- **Updated dependencies to latest stable versions**:
+  - Compose BOM: 2024.02.00 → 2024.12.01
+  - AndroidX Lifecycle: 2.7.0 → 2.8.7
+  - Activity Compose: 1.8.2 → 1.9.3
+  - Navigation Compose: 2.7.5 → 2.8.5
+  - Coil: 2.5.0 → 2.7.0
+  - Accompanist Permissions: 0.32.0 → 0.36.0
+- **Enhanced GitHub Actions workflow**: Added `./gradlew clean` step before building
+
+### Build Configuration Details
+- **Compile SDK**: 34 (Android 14)
+- **Target SDK**: 34 (Android 14) 
+- **Min SDK**: 24 (Android 7.0)
+- **JVM Target**: 11
+- **Kotlin Compiler Extension**: 1.5.8
+
+## User Preferences
+- **Language**: Vietnamese (project documentation and communication)
+- **Build Priority**: Focus on resolving Android build errors and ensuring GitHub Actions success
+- **Target**: Successful APK generation in `app/build/outputs/apk/debug/`
+
+## Project Architecture
+
+### Android Application Structure
 ```
 app/
 ├── src/main/
-│   ├── java/com/gallery/
-│   │   ├── MainActivity.kt
-│   │   ├── ui/
-│   │   │   ├── screens/
-│   │   │   ├── components/
-│   │   │   └── theme/
+│   ├── java/com/gallery/iosstyle/
+│   │   ├── MainActivity.kt              # Main activity with Compose
 │   │   ├── data/
+│   │   │   ├── Photo.kt                 # Photo data model
+│   │   │   └── PhotoRepository.kt       # Repository pattern
+│   │   ├── ui/
+│   │   │   ├── screens/                 # Compose screens
+│   │   │   ├── components/              # Reusable UI components
+│   │   │   └── theme/                   # Material3 theme
 │   │   └── viewmodel/
-│   ├── res/
-│   └── AndroidManifest.xml
-├── build.gradle.kts
-└── proguard-rules.pro
+│   │       └── PhotoViewModel.kt        # ViewModel with StateFlow
+│   ├── res/                             # Android resources
+│   └── AndroidManifest.xml             # App manifest with permissions
+└── build.gradle.kts                    # App module build config
 ```
 
-## Recent Changes
-- 2025-07-29: Project initialization with Android Gallery structure
-- 2025-07-29: ✅ Completed full Android project structure
-- 2025-07-29: ✅ Implemented iOS-style UI components with Jetpack Compose
-- 2025-07-29: ✅ Added photo grid, Recent Days, and People & Pets sections
-- 2025-07-29: ✅ Created photo detail viewer with zoom and swipe
-- 2025-07-29: ✅ Configured GitHub Actions for automated APK builds
-- 2025-07-29: ✅ Set up proper permissions and MediaStore API integration
-- 2025-07-29: 🔧 **FIXED:** GitHub Actions build errors by updating Gradle versions
-  - Updated Kotlin 1.9.10 → 1.9.21, Android Gradle 8.1.2 → 8.1.4
-  - Fixed Compose plugin compatibility issues
-  - Updated Compose BOM to 2024.02.00 for latest stable versions
-- 2025-07-29: 🔧 **FIXED:** AndroidX Core dependency issues
-  - Added androidx.core:core:1.13.1 to fix ContextCompat errors
-  - Enabled android.enableJetifier=true for legacy support conversion
-  - Fixed package androidx.core.content does not exist error
+### GitHub Actions CI/CD
+- **Workflow**: `.github/workflows/android.yml`
+- **Triggers**: Push to main/master, PRs, manual dispatch
+- **Build Outputs**: Debug and Release APK artifacts (30-day retention)
+- **Features**: Gradle caching, lint checks, JDK 17 setup, Android SDK auto-installation
 
-## Build Status
-- **GitHub Actions**: Configured for automatic APK builds
-- **APK Artifacts**: Debug and release versions available
-- **Deployment**: Ready for GitHub repository push
+## Key Features Implemented
+- iOS-style photo grid with 3-column layout
+- Recent Days section with thumbnail images
+- People & Pets section with circular avatars
+- Photo detail viewer with zoom and swipe gestures
+- Permission handling for media access
+- Material Design 3 theming
+- MVVM architecture with Compose
 
-## Project Completion Status
-✅ **COMPLETED** - Dự án Android Gallery iOS-style đã hoàn thành:
-- Tất cả source code được tạo (12 Kotlin files)
-- UI mô phỏng iOS Photos app
-- GitHub Actions workflow đã cấu hình
-- APK có thể build thành công qua CI/CD
-- Documentation và hướng dẫn deploy đầy đủ
+## Next Steps
+- Verify the build fixes resolve the original `lStar not found` error
+- Test GitHub Actions workflow with updated configuration
+- Ensure APK artifacts are generated successfully
+- Validate app functionality on Android devices
