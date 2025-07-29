@@ -1,0 +1,46 @@
+2025-07-29T06:15:23.3535519Z ##[group]Run ./gradlew clean
+2025-07-29T06:15:23.3535772Z [36;1m./gradlew clean[0m
+2025-07-29T06:15:23.3562384Z shell: /usr/bin/bash -e {0}
+2025-07-29T06:15:23.3562613Z env:
+2025-07-29T06:15:23.3562881Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-07-29T06:15:23.3563510Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-07-29T06:15:23.3564109Z   ANDROID_HOME: /usr/local/lib/android/sdk
+2025-07-29T06:15:23.3564382Z   ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+2025-07-29T06:15:23.3564623Z ##[endgroup]
+2025-07-29T06:15:23.4408305Z Downloading https://services.gradle.org/distributions/gradle-8.6-all.zip
+2025-07-29T06:15:25.3612528Z ....................10%.....................20%.....................30%.....................40%.....................50%.....................60%.....................70%.....................80%.....................90%.....................100%
+2025-07-29T06:15:28.4215414Z 
+2025-07-29T06:15:28.4216839Z Welcome to Gradle 8.6!
+2025-07-29T06:15:28.4217284Z 
+2025-07-29T06:15:28.4217574Z Here are the highlights of this release:
+2025-07-29T06:15:28.4218278Z  - Configurable encryption key for configuration cache
+2025-07-29T06:15:28.4218882Z  - Build init improvements
+2025-07-29T06:15:28.4219388Z  - Build authoring improvements
+2025-07-29T06:15:28.4219697Z 
+2025-07-29T06:15:28.4220151Z For more details see https://docs.gradle.org/8.6/release-notes.html
+2025-07-29T06:15:28.4220602Z 
+2025-07-29T06:15:28.7197988Z Starting a Gradle Daemon (subsequent builds will be faster)
+2025-07-29T06:15:50.0196843Z 
+2025-07-29T06:15:50.0197715Z FAILURE: Build failed with an exception.
+2025-07-29T06:15:50.0198129Z 
+2025-07-29T06:15:50.0198261Z * Where:
+2025-07-29T06:15:50.0207503Z Build file '/home/runner/work/iOS-Gallery/iOS-Gallery/build.gradle.kts' line: 2
+2025-07-29T06:15:50.0208357Z 
+2025-07-29T06:15:50.0213327Z * What went wrong:
+2025-07-29T06:15:50.0215278Z Plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '1.9.22', apply: false] was not found in any of the following sources:
+2025-07-29T06:15:50.0218618Z 
+2025-07-29T06:15:50.0221239Z - Gradle Core Plugins (plugin is not in 'org.gradle' namespace)
+2025-07-29T06:15:50.0222789Z - Plugin Repositories (could not resolve plugin artifact 'org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin:1.9.22')
+2025-07-29T06:15:50.0224295Z   Searched in the following repositories:
+2025-07-29T06:15:50.0224743Z     Google
+2025-07-29T06:15:50.0225022Z     MavenRepo
+2025-07-29T06:15:50.0225440Z     Gradle Central Plugin Repository
+2025-07-29T06:15:50.0225733Z 
+2025-07-29T06:15:50.0225859Z * Try:
+2025-07-29T06:15:50.0226341Z > Run with --stacktrace option to get the stack trace.
+2025-07-29T06:15:50.0227035Z > Run with --info or --debug option to get more log output.
+2025-07-29T06:15:50.0227610Z > Run with --scan to get full insights.
+2025-07-29T06:15:50.0228134Z > Get more help at https://help.gradle.org.
+2025-07-29T06:15:50.0228440Z 
+2025-07-29T06:15:50.0228626Z BUILD FAILED in 26s
+2025-07-29T06:15:50.4170950Z ##[error]Process completed with exit code 1.

@@ -5,7 +5,7 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
 
 ## Stack
 - **Android SDK 34** (API Level 34)
-- **Kotlin 1.9.22** with Jetpack Compose
+- **Kotlin 1.9.25** with Jetpack Compose (latest stable in 1.9.x series)
 - **Material Design 3** (Material3)
 - **GitHub Actions** for CI/CD
 - **Gradle 8.6** build system
@@ -13,13 +13,15 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
 
 ## Recent Changes (2025-07-29)
 
-### ✅ Android Build Configuration Fixed
+### ✅ Android Build Configuration Fixed - FINAL VERSION
 - **Updated Gradle versions**: 
   - Android Gradle Plugin: 8.1.4 → 8.2.2
-  - Kotlin: 1.9.21 → 1.9.22
+  - Kotlin: 1.9.21 → **1.9.25** (latest stable in 1.9.x series)
   - Gradle Wrapper: 8.4 → 8.6
+- **CRITICAL FIX**: Kotlin 1.9.22 không tồn tại → Changed to 1.9.25
 - **Added missing Kotlin Compose plugin**: Fixed the `org.jetbrains.kotlin.plugin.compose` plugin error
 - **Updated Java target**: 1.8 → 11 (modern compatibility)
+- **Compose Compiler Extension**: 1.5.8 → **1.5.15** (compatible with Kotlin 1.9.25)
 - **Updated dependencies to latest stable versions**:
   - Compose BOM: 2024.02.00 → 2024.12.01
   - AndroidX Lifecycle: 2.7.0 → 2.8.7
@@ -34,7 +36,7 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
 - **Target SDK**: 34 (Android 14) 
 - **Min SDK**: 24 (Android 7.0)
 - **JVM Target**: 11
-- **Kotlin Compiler Extension**: 1.5.8
+- **Kotlin Compiler Extension**: 1.5.15 (compatible with Kotlin 1.9.25)
 
 ## User Preferences
 - **Language**: Vietnamese (project documentation and communication)
