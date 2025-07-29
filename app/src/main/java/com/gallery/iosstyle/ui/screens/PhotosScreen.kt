@@ -48,6 +48,7 @@ import com.gallery.iosstyle.ui.theme.IOSBlue
 import com.gallery.iosstyle.ui.theme.IOSGray
 import com.gallery.iosstyle.viewmodel.PhotoViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PhotosScreen(
     viewModel: PhotoViewModel,
@@ -132,8 +133,9 @@ fun PhotosScreen(
             }
             
             error != null -> {
+                val errorMessage = error ?: "Unknown error"
                 ErrorContent(
-                    error = error,
+                    error = errorMessage,
                     onRetry = { viewModel.loadPhotos() },
                     modifier = Modifier.padding(paddingValues)
                 )
