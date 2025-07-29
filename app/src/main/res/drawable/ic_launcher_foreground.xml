@@ -25,10 +25,8 @@
               android:pathData="M39,20 C47.28,20 54,26.72 54,35 C54,43.28 47.28,50 39,50 C39,41.72 32.28,35 24,35 C24,26.72 30.72,20 39,20 Z"/>
         <path android:fillColor="#FFB347"
               android:pathData="M54,35 C62.28,35 69,41.72 69,50 C69,58.28 62.28,65 54,65 C54,56.72 47.28,50 39,50 C39,41.72 45.72,35 54,35 Z"/>
-        <!-- Center circle -->
-        <circle android:fillColor="#FFFFFF"
-                android:cx="54"
-                android:cy="50"
-                android:r="8"/>
+        <!-- Center circle - using path instead of circle for compatibility -->
+        <path android:fillColor="#FFFFFF"
+              android:pathData="M54,42 C58.42,42 62,45.58 62,50 C62,54.42 58.42,58 54,58 C49.58,58 46,54.42 46,50 C46,45.58 49.58,42 54,42 Z"/>
     </group>
 </vector>
