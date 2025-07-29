@@ -2,12 +2,12 @@ package com.gallery.iosstyle.ui.components
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.outlined.Apps
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Folder
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
@@ -53,8 +53,8 @@ fun IOSBottomNavigation(
         ),
         BottomNavItem(
             title = "Albums",
-            selectedIcon = Icons.Filled.Apps,
-            unselectedIcon = Icons.Outlined.Apps,
+            selectedIcon = Icons.Filled.Folder,
+            unselectedIcon = Icons.Outlined.Folder,
             route = "albums"
         ),
         BottomNavItem(
