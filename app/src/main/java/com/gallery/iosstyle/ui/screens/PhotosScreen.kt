@@ -49,6 +49,7 @@ import com.gallery.iosstyle.ui.components.PeoplePetsSection
 import com.gallery.iosstyle.ui.components.PhotoGrid
 import com.gallery.iosstyle.ui.components.RecentDaysSection
 import com.gallery.iosstyle.ui.components.IOSTimelineGrid
+import com.gallery.iosstyle.ui.components.SimplePhotoGrid
 import com.gallery.iosstyle.ui.components.IOSBottomNavigation
 import com.gallery.iosstyle.ui.components.IOSTimePeriodFilter
 import com.gallery.iosstyle.ui.components.TimePeriod
@@ -165,8 +166,8 @@ fun PhotosScreen(
                         onPeriodSelected = { selectedTimePeriod = it }
                     )
                     
-                    // Main photo timeline grid
-                    IOSTimelineGrid(
+                    // Simple photo grid for better performance
+                    SimplePhotoGrid(
                         photos = photos,
                         onPhotoClick = onPhotoClick
                     )

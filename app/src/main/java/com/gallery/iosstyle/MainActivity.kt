@@ -23,6 +23,7 @@ import androidx.navigation.compose.rememberNavController
 import com.gallery.iosstyle.data.Photo
 import com.gallery.iosstyle.data.PhotoRepository
 import com.gallery.iosstyle.ui.screens.PhotoDetailScreen
+import com.gallery.iosstyle.ui.screens.MainScreen
 import com.gallery.iosstyle.ui.screens.PhotosScreen
 import com.gallery.iosstyle.ui.theme.IOSGalleryTheme
 import com.gallery.iosstyle.viewmodel.PhotoViewModel
@@ -99,20 +100,10 @@ fun GalleryApp(
     
     NavHost(
         navController = navController,
-        startDestination = "photos"
+        startDestination = "main"
     ) {
-        composable("photos") {
-            PhotosScreen(
-                viewModel = viewModel,
-                hasPermission = hasPermission,
-                onRequestPermission = onRequestPermission,
-                onPhotoClick = { photo, index ->
-                    // Get current photos from viewmodel
-                    currentPhotos = viewModel.photos.value
-                    currentPhotoIndex = index
-                    navController.navigate("photo_detail")
-                }
-            )
+        composable("main") {
+            MainScreen(viewModel = viewModel)
         }
         
         composable("photo_detail") {

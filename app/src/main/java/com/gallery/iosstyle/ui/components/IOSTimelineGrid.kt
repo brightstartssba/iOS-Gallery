@@ -47,22 +47,35 @@ data class PhotoGroup(
 @Composable
 fun IOSTimelineGrid(
     photos: List<Photo>,
-    onPhotoClick: (Photo, Int) -> Unit,
+    onPhotoClick: (Photo, Int) -> Unit = { _, _ -> },
     modifier: Modifier = Modifier
 ) {
-    val groupedPhotos = groupPhotosByDate(photos)
-    
-    LazyColumn(
-        modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = 16.dp)
-    ) {
-        items(groupedPhotos) { group ->
-            PhotoGroupSection(
-                group = group,
-                onPhotoClick = onPhotoClick,
-                allPhotos = photos
+    if (photos.isEmpty()) {
+        Box(
+            modifier = modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "No photos to display",
+                style = MaterialTheme.typography.bodyLarge,
+                color = Color.Gray
             )
-            Spacer(modifier = Modifier.height(24.dp))
+        }
+    } else {
+        val groupedPhotos = groupPhotosByDate(photos)
+        
+        LazyColumn(
+            modifier = modifier.fillMaxSize(),
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            items(groupedPhotos) { group ->
+                PhotoGroupSection(
+                    group = group,
+                    onPhotoClick = onPhotoClick,
+                    allPhotos = photos
+                )
+            }
         }
     }
 }
@@ -81,8 +94,8 @@ private fun PhotoGroupSection(
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
             ),
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+            color = Color.Black,
+            modifier = Modifier.padding(bottom = 8.dp)
         )
         
         // Featured large photo + grid of smaller photos
