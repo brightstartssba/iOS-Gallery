@@ -31,6 +31,7 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
   - Coil: 2.5.0 → 2.7.0
   - Accompanist Permissions: 0.32.0 → 0.36.0
 - **Enhanced GitHub Actions workflow**: Added `./gradlew clean` step before building
+- **Material 3 theme fix**: Removed deprecated Material 2 attributes (`colorPrimaryVariant`, `colorSecondaryVariant`) → replaced with Material 3 color system (`colorPrimaryContainer`, `colorSecondaryContainer`)
 
 ### Build Configuration Details
 - **Compile SDK**: 34 (Android 14)

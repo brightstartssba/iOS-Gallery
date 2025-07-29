@@ -1,76 +1,112 @@
-# ✅ ANDROIDX CORE DEPENDENCY FIX
+# 🔧 ANDROIDX MATERIAL 3 THEME FIX
 
-## 🐛 **Lỗi đã sửa:**
-
-### **Lỗi chính:** 
+## 🚨 **LỖI PHÁT HIỆN:**
 ```
-error: package androidx.core.content does not exist
-error: cannot find symbol: ContextCompat
+error: resource attr/colorPrimaryVariant (aka com.gallery.iosstyle:attr/colorPrimaryVariant) not found.
+error: style attribute 'attr/colorPrimary (aka com.gallery.iosstyle:attr/colorPrimary)' not found.
+error: style attribute 'attr/colorPrimaryVariant (aka com.gallery.iosstyle:attr/colorPrimaryVariant)' not found.
+error: style attribute 'attr/colorSecondaryVariant (aka com.gallery.iosstyle:attr/colorSecondaryVariant)' not found.
 ```
 
-### **Root Cause Analysis:**
-1. File `Theme.kt` sử dụng `androidx.core.view.WindowCompat`
-2. Project chỉ có `androidx.core:core-ktx` nhưng thiếu `androidx.core:core` base library
-3. `ContextCompat` nằm trong `androidx.core.content` package của `androidx.core:core`
+## 📋 **NGUYÊN NHÂN:**
+- Project sử dụng **Material 3** (`Theme.Material3.DayNight.NoActionBar`)
+- Theme file vẫn dùng **Material Design 2 attributes**:
+  - `colorPrimaryVariant` ❌ (removed in Material 3)
+  - `colorSecondaryVariant` ❌ (removed in Material 3)
 
-## 🔧 **Giải pháp đã áp dụng:**
+## ✅ **GIẢI PHÁP ĐÃ ÁP DỤNG:**
 
-### **1. Cập nhật `app/build.gradle.kts`:**
-```kotlin
-dependencies {
-    // ✅ ADDED: Full AndroidX Core dependency
-    implementation("androidx.core:core:1.13.1")          // Base core library
-    implementation("androidx.core:core-ktx:1.13.1")      // Kotlin extensions
+### **Material 2 → Material 3 Migration:**
+
+#### **TRƯỚC (Material 2 - LỖI):**
+```xml
+<style name="Theme.IOSGallery" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/ios_blue</item>
+    <item name="colorPrimaryVariant">@color/purple_700</item>     ❌ Removed in M3
+    <item name="colorSecondary">@color/teal_200</item>
+    <item name="colorSecondaryVariant">@color/teal_700</item>    ❌ Removed in M3
+</style>
+```
+
+#### **SAU (Material 3 - ĐÚNG):**
+```xml
+<style name="Theme.IOSGallery" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Material 3 color system -->
+    <item name="colorPrimary">@color/ios_blue</item>
+    <item name="colorOnPrimary">@color/white</item>
+    <item name="colorPrimaryContainer">@color/ios_gray</item>      ✅ M3 replacement
+    <item name="colorOnPrimaryContainer">@color/black</item>
     
-    // Existing dependencies...
-}
+    <item name="colorSecondary">@color/ios_dark_gray</item>
+    <item name="colorOnSecondary">@color/white</item>
+    <item name="colorSecondaryContainer">@color/ios_gray</item>    ✅ M3 replacement
+    <item name="colorOnSecondaryContainer">@color/black</item>
+    
+    <!-- Surface colors for better iOS-style appearance -->
+    <item name="colorSurface">@color/white</item>
+    <item name="colorOnSurface">@color/black</item>
+    <item name="colorSurfaceVariant">@color/ios_gray</item>
+    <item name="colorOnSurfaceVariant">@color/ios_dark_gray</item>
+</style>
 ```
 
-### **2. Cập nhật `gradle.properties`:**
-```properties
-# ✅ ADDED: Enable Jetifier for legacy support library conversion
-android.useAndroidX=true
-android.enableJetifier=true  # NEW LINE ADDED
+## 🎨 **MATERIAL 3 COLOR SYSTEM:**
+
+### **Key Changes:**
+- ❌ `colorPrimaryVariant` → ✅ `colorPrimaryContainer`
+- ❌ `colorSecondaryVariant` → ✅ `colorSecondaryContainer`
+- ✅ Added `colorOnPrimaryContainer`, `colorOnSecondaryContainer`
+- ✅ Added comprehensive surface color system
+- ✅ iOS-style color mapping
+
+### **iOS Color Mapping:**
+- **Primary**: iOS Blue (#007AFF) - main actions
+- **Primary Container**: iOS Gray (#F2F2F7) - background surfaces
+- **Secondary**: iOS Dark Gray (#8E8E93) - secondary text
+- **Surface**: White - main background
+- **Surface Variant**: iOS Gray - section backgrounds
+
+## 🎯 **EXPECTED RESULTS:**
+
+### ✅ **Resource Linking Success:**
+- All Material 3 attributes resolve correctly
+- No more `attr/colorPrimaryVariant not found` errors
+- Theme compilation proceeds successfully
+
+### ✅ **Visual Consistency:**
+- iOS-style color scheme maintained
+- Material 3 design system benefits
+- Better accessibility and contrast
+
+### ✅ **Build Process:**
+- `:app:processDebugResources` completes successfully
+- APK generation proceeds to final steps
+- All resource linking errors resolved
+
+## 📝 **COMMIT INFORMATION:**
+
+```bash
+git add app/src/main/res/values/themes.xml ANDROIDX_FIX_NOTES.md
+git commit -m "Fix Material 3 theme: Remove deprecated M2 attributes
+
+- Fix: colorPrimaryVariant → colorPrimaryContainer (M3 standard)
+- Fix: colorSecondaryVariant → colorSecondaryContainer (M3 standard)  
+- Add: Complete Material 3 color system with iOS styling
+- Resolve: Android resource linking failed errors
+- Result: APK build can proceed with proper M3 theme"
 ```
 
-### **3. Verified project structure:**
-- ✅ `settings.gradle.kts` - Module `:app` included correctly
-- ✅ Repository configuration - `google()` và `mavenCentral()` đã có
-- ✅ AndroidX migration - Đã enable Jetifier
+## 🔍 **TECHNICAL BACKGROUND:**
 
-## 📱 **Dependencies Fixed:**
+### **Material Design 3 Changes:**
+- Material 3 introduced new color system with containers
+- Removed `Variant` colors in favor of semantic naming
+- Added `Container` and `OnContainer` color roles
+- Better accessibility and theming support
 
-### **AndroidX Core Libraries:**
-- `androidx.core:core:1.13.1` - Provides `ContextCompat`, `ActivityCompat`
-- `androidx.core:core-ktx:1.13.1` - Kotlin extensions for core library
+### **Color Role Migration:**
+- `colorPrimaryVariant` → `colorPrimaryContainer` + proper contrast
+- `colorSecondaryVariant` → `colorSecondaryContainer` + proper contrast
+- Enhanced surface color system for better visual hierarchy
 
-### **Package Structure:**
-```
-androidx.core:core:1.13.1
-├── androidx.core.content.ContextCompat        ✅ FIXED
-├── androidx.core.app.ActivityCompat           ✅ Available  
-├── androidx.core.view.WindowCompat            ✅ Used in Theme.kt
-└── androidx.core.graphics.*                   ✅ Available
-```
-
-## 🚀 **Build Verification:**
-
-### **Files using AndroidX Core:**
-1. `Theme.kt` - Uses `androidx.core.view.WindowCompat`
-2. Potential permission handling - Uses `ContextCompat.checkSelfPermission`
-
-### **GitHub Actions Build:**
-- ✅ `./gradlew assembleDebug` sẽ thành công
-- ✅ Repository dependencies từ `google()` và `mavenCentral()`
-- ✅ All AndroidX dependencies compatible
-
-## 🎯 **Expected Result:**
-- ✅ Build errors eliminated completely
-- ✅ APK debug builds successfully in CI/CD
-- ✅ All AndroidX core functionality available
-- ✅ Compatible with latest Android SDK 34
-
-**Version Strategy:**
-- Sử dụng androidx.core:1.13.1 (latest stable)
-- Tương thích với Compose BOM 2024.02.00
-- Support Android API 24+ (99%+ devices)
+This fix aligns the theme with Material 3 specifications while maintaining the iOS-style visual design!
