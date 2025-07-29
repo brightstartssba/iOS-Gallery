@@ -2,13 +2,13 @@ package com.gallery.iosstyle.ui.components
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Collections
+import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.PhotoCamera
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.outlined.Collections
+import androidx.compose.material.icons.outlined.Apps
 import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.PhotoCamera
+import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -41,8 +41,8 @@ fun IOSBottomNavigation(
     val navItems = listOf(
         BottomNavItem(
             title = "Photos",
-            selectedIcon = Icons.Filled.PhotoCamera,
-            unselectedIcon = Icons.Outlined.PhotoCamera,
+            selectedIcon = Icons.Filled.Home,
+            unselectedIcon = Icons.Outlined.Home,
             route = "photos"
         ),
         BottomNavItem(
@@ -53,8 +53,8 @@ fun IOSBottomNavigation(
         ),
         BottomNavItem(
             title = "Albums",
-            selectedIcon = Icons.Filled.Collections,
-            unselectedIcon = Icons.Outlined.Collections,
+            selectedIcon = Icons.Filled.Apps,
+            unselectedIcon = Icons.Outlined.Apps,
             route = "albums"
         ),
         BottomNavItem(
