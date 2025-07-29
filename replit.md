@@ -33,7 +33,7 @@ An Android mobile application that mimics the iOS Photos app interface, built wi
 - **Enhanced GitHub Actions workflow**: Added `./gradlew clean` step before building
 - **Material 3 theme fix**: Final AppCompat fallback approach - changed XML theme parent from `Theme.Material3.DayNight.NoActionBar` (not found) to `Theme.AppCompat.DayNight.NoActionBar` (guaranteed compatibility), added AppCompat dependency, maintained Material 3 Compose functionality
 - **Launcher icon compatibility fix**: Fixed Vector Drawable circle attributes errors by replacing `<circle>` with `<path>`, implemented adaptive icons only for API 26+ với bitmap fallback for API 24-25, ensuring universal launcher icon support across all target Android versions
-- **Kotlin compilation fix**: Added `@OptIn(ExperimentalMaterial3Api::class)` annotation và compiler flags to suppress experimental Material 3 API warnings, fixed smart cast error by using local variable for error property handling
+- **Kotlin compilation fix**: Added `@OptIn(ExperimentalMaterial3Api::class)` annotation và compiler flags to suppress experimental Material 3 API warnings, fixed smart cast error by using local variable for error property handling, resolved missing import for `ExperimentalMaterial3Api` class
 
 ### Build Configuration Details
 - **Compile SDK**: 34 (Android 14)
