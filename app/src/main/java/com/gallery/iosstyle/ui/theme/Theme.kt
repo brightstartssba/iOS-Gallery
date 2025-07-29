@@ -17,15 +17,39 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = IOSBlue,
-    secondary = IOSGray,
-    tertiary = IOSDarkGray
+    onPrimary = IOSWhite,
+    primaryContainer = IOSGray,
+    onPrimaryContainer = IOSBlack,
+    secondary = IOSDarkGray,
+    onSecondary = IOSWhite,
+    secondaryContainer = IOSGray,
+    onSecondaryContainer = IOSBlack,
+    tertiary = Purple80,
+    onTertiary = IOSBlack,
+    surface = IOSBlack,
+    onSurface = IOSWhite,
+    surfaceVariant = IOSDarkGray,
+    onSurfaceVariant = IOSGray
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = IOSBlue,
-    secondary = IOSGray,
-    tertiary = IOSDarkGray
+    onPrimary = IOSWhite,
+    primaryContainer = IOSLightGray,
+    onPrimaryContainer = IOSBlack,
+    secondary = IOSDarkGray,
+    onSecondary = IOSWhite,
+    secondaryContainer = IOSGray,
+    onSecondaryContainer = IOSBlack,
+    tertiary = Purple40,
+    onTertiary = IOSWhite,
+    surface = IOSWhite,
+    onSurface = IOSBlack,
+    surfaceVariant = IOSGray,
+    onSurfaceVariant = IOSDarkGray
 )
+
+
 
 @Composable
 fun IOSGalleryTheme(
