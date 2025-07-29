@@ -153,8 +153,8 @@ private fun PhotoGroupSection(
 private fun calculateGridHeight(photoCount: Int): androidx.compose.ui.unit.Dp {
     val rows = kotlin.math.ceil(photoCount / 3.0).toInt()
     val itemHeight = 120.dp
-    val spacing = (rows - 1) * 1.dp
-    return itemHeight * rows + spacing
+    val spacingTotal = (rows - 1).dp
+    return itemHeight * rows + spacingTotal
 }
 
 private fun groupPhotosByDate(photos: List<Photo>): List<PhotoGroup> {
